@@ -9,7 +9,7 @@ export default function Footer() {
           </span>
         </a>
 
-        <p>© {new Date().getFullYear()} Geetha Sujith. Built with care❤️.</p>
+        <p>© {new Date().getFullYear()} Geetha Sujith . All rights reserved.</p>
 
         <a href="#home" className="back-to-top">
           Back to top ↑

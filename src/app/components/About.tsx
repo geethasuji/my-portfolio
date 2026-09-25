@@ -1,73 +1,118 @@
-import { ArrowRight } from "@/app/components/icons";
 import Image from "next/image";
+import { ArrowRight } from "@/app/components/icons";
 
-const focusAreas = [
-  [
-    "01",
-    "Product thinking",
-    "Thoughtful interfaces shaped around real people and real work.",
-  ],
-  [
-    "02",
-    "Full-stack craft",
-    "From a polished frontend to a reliable backend and data layer.",
-  ],
-  [
-    "03",
-    "Practical momentum",
-    "Steady, focused progress on software that has to work in the real world.",
-  ],
+const highlights = [
+  {
+    number: "01",
+    title: "Frontend",
+    text: "Building responsive, thoughtful interfaces with React, Next.js, and TypeScript.",
+  },
+  {
+    number: "02",
+    title: "Backend",
+    text: "Developing APIs and application logic with Python, Django, FastAPI, and PostgreSQL.",
+  },
+  {
+    number: "03",
+    title: "Real-world projects",
+    text: "Working on practical applications that connect user workflows with reliable systems.",
+  },
 ];
 
 export default function About() {
   return (
     <section className="about section" id="about">
-      <div className="container about-layout">
-        <div className="about-image">
-          <Image
-            src="/profile/geetha1.jpg.png"
-            alt="Geetha Sujith"
-            width={400}
-            height={500}
-          />
-        </div>
-        <div className="section-intro">
-          <p className="eyebrow">
-            <span /> The person behind the code
-          </p>
-          <h2>
-            Technology is most powerful when it feels <i>simple.</i>
-          </h2>
-          <a className="text-link dark-link" href="#skills">
-            My technical toolkit <ArrowRight />
-          </a>
+      <div className="container about-main">
+
+        {/* Left - Image */}
+        <div className="about-visual">
+          <div className="about-image-frame">
+            <Image
+              src="/profile/geetha1.jpg.png"
+              alt="Geetha Sujith"
+              width={520}
+              height={650}
+              className="about-photo"
+            />
+
+            <div className="about-image-label">
+              <span className="about-status-dot" />
+              Full Stack Developer
+            </div>
+          </div>
+
+          <div className="about-side-note">
+            <span>Based in</span>
+            <strong>Dubai, UAE</strong>
+          </div>
         </div>
 
-        <div className="about-content">
+        {/* Right - Introduction */}
+        <div className="about-copy">
+          <p className="eyebrow">
+            <span /> About me
+          </p>
+
+          <h2>
+            I enjoy turning ideas into software that feels{" "}
+            <i>clear and useful.</i>
+          </h2>
+
           <p className="about-lead">
-            I&apos;m a full stack developer with an MCA, and
-            a current focus on live CRM development.
+            I&apos;m Geetha Sujith, a Full Stack Developer with an MCA and
+            hands-on experience building modern web applications.
           </p>
+
           <p>
-            I work across React, Next.js, TypeScript, Python, Django, FastAPI,
-            and PostgreSQL—connecting considered interfaces with the systems
-            that make them useful.
+            My work spans frontend development with React, Next.js, and
+            TypeScript, together with backend development using Python,
+            Django, FastAPI, and PostgreSQL.
           </p>
+
           <p>
-            My approach is curious and grounded: understand the workflow, make
-            the next interaction clear, then build with care.
+            I enjoy understanding how a product should work from the user&apos;s
+            perspective and then connecting that experience to the APIs,
+            business logic, and data behind it.
           </p>
+
+          <div className="about-actions">
+            <a className="text-link dark-link" href="#skills">
+              Explore my skills
+              <ArrowRight />
+            </a>
+
+            <a className="text-link dark-link" href="#projects">
+              View my projects
+              <span>↗</span>
+            </a>
+          </div>
         </div>
       </div>
 
-      <div className="container focus-grid">
-        {focusAreas.map(([number, title, detail]) => (
-          <article className="focus-card" key={number}>
-            <span className="focus-number">{number}</span>
-            <h3>{title}</h3>
-            <p>{detail}</p>
-          </article>
-        ))}
+      {/* Highlights */}
+      <div className="container about-highlights">
+        <div className="about-highlights-heading">
+          <p className="eyebrow">
+            <span /> What I bring
+          </p>
+
+          <p>
+            A practical approach to building complete web applications,
+            from interface to backend.
+          </p>
+        </div>
+
+        <div className="focus-grid">
+          {highlights.map((item) => (
+            <article className="focus-card" key={item.number}>
+              <span className="focus-number">{item.number}</span>
+
+              <h3>{item.title}</h3>
+
+              <p>{item.text}</p>
+            </article>
+          ))}
+        </div>
       </div>
     </section>
   );

@@ -3,8 +3,8 @@ import Hero from "@/app/components/Hero";
 import Navbar from "@/app/components/Navbar";
 import Skills from "@/app/components/Skills";
 import Projects from "@/app/components/Projects";
-import Experience from "@/app/components/Experience";
-import Certifications from "@/app/components/Certifications";
+import Training from "@/app/components/Training";
+import WhatIDo from "@/app/components/WhatIDo";
 import Contact from "@/app/components/Contact";
 import Footer from "@/app/components/Footer";
 
@@ -16,8 +16,8 @@ export default function Home() {
       <About />
       <Skills />
       <Projects />
-      <Experience />
-      <Certifications />
+      <Training />
+      <WhatIDo />
        <Contact email="geethasujith04@gmail.com" />
       <Footer />
     </main>
