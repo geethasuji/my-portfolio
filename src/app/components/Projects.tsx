@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { projects } from "@/app/data/projects";
 
 function ProjectCarousel({
@@ -25,6 +25,19 @@ function ProjectCarousel({
     );
   };
 
+  // Automatically move to the next screenshot every 4 seconds
+  useEffect(() => {
+    if (images.length <= 1) return;
+
+    const interval = setInterval(() => {
+      setCurrent((prev) =>
+        prev === images.length - 1 ? 0 : prev + 1
+      );
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [images.length]);
+
   return (
     <div className="project-carousel">
       <div className="carousel-image-wrapper">
@@ -33,6 +46,7 @@ function ProjectCarousel({
           alt={`${title} screenshot ${current + 1}`}
           fill
           className="project-carousel-image"
+          sizes="(max-width: 760px) 100vw, 33vw"
         />
 
         {images.length > 1 && (
@@ -41,7 +55,7 @@ function ProjectCarousel({
               type="button"
               className="carousel-button carousel-prev"
               onClick={previous}
-              aria-label="Previous screenshot"
+              aria-label={`Previous ${title} screenshot`}
             >
               ←
             </button>
@@ -50,7 +64,7 @@ function ProjectCarousel({
               type="button"
               className="carousel-button carousel-next"
               onClick={next}
-              aria-label="Next screenshot"
+              aria-label={`Next ${title} screenshot`}
             >
               →
             </button>
@@ -68,10 +82,19 @@ function ProjectCarousel({
                 current === index ? "active" : ""
               }`}
               onClick={() => setCurrent(index)}
-              aria-label={`Show screenshot ${index + 1}`}
+              aria-label={`Show ${title} screenshot ${index + 1}`}
+              aria-current={
+                current === index ? "true" : undefined
+              }
             />
           ))}
         </div>
+      )}
+
+      {images.length > 1 && (
+        <p className="carousel-counter">
+          {current + 1} / {images.length}
+        </p>
       )}
     </div>
   );
@@ -79,46 +102,70 @@ function ProjectCarousel({
 
 export default function Projects() {
   return (
-    <section id="projects" className="section projects-section">
+    <section
+      id="projects"
+      className="section projects-section"
+    >
       <div className="container">
         <p className="eyebrow">
           <span /> Selected work
         </p>
 
         <h2>
-          Building software for the work that happens <i>every day.</i>
+          Building software for the work that happens{" "}
+          <i>every day.</i>
         </h2>
 
         <div className="project-list">
           {projects.map((project) => (
-            <article className="project-card" key={project.title}>
-
+            <article
+              className="project-card"
+              key={project.title}
+            >
               {/* Project image carousel */}
-              {project.images && project.images.length > 0 && (
-                <ProjectCarousel
-                  images={project.images}
-                  title={project.title}
-                />
-              )}
+              {project.images &&
+                project.images.length > 0 && (
+                  <ProjectCarousel
+                    images={project.images}
+                    title={project.title}
+                  />
+                )}
 
+              {/* Project number and type */}
               <div className="project-card-top">
                 <span>{project.number}</span>
                 <span>{project.type}</span>
               </div>
 
+              {/* Project title */}
               <h3>{project.title}</h3>
 
+              {/* Project description */}
               <p>{project.description}</p>
 
-              <div className="project-tags">
-                {project.technologies.map((technology) => (
-                  <span key={technology}>
-                    {technology}
-                  </span>
-                ))}
+              {/* Key Features */}
+              <div className="project-features">
+                <h4>Key Features</h4>
+
+                <ul>
+                  {project.features.map((feature) => (
+                    <li key={feature}>{feature}</li>
+                  ))}
+                </ul>
               </div>
 
-              {/* Live Demo */}
+              {/* Technologies */}
+              <div className="project-tags">
+                {project.technologies.map(
+                  (technology) => (
+                    <span key={technology}>
+                      {technology}
+                    </span>
+                  )
+                )}
+              </div>
+
+              {/* View Project */}
               {project.demo && (
                 <div className="project-actions">
                   <a
@@ -127,7 +174,7 @@ export default function Projects() {
                     rel="noopener noreferrer"
                     className="project-link"
                   >
-                    Live Demo ↗
+                    View Project ↗
                   </a>
                 </div>
               )}

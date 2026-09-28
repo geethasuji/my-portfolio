@@ -2569,3 +2569,68 @@ h2 {
     height: 150px;
   }
 }
+
+/* =========================================================
+   PROJECT KEY FEATURES
+   Added for the updated Projects.tsx
+   ========================================================= */
+
+.project-features {
+  position: relative;
+  margin: 18px 0 20px;
+}
+
+.project-features h4 {
+  margin: 0 0 10px;
+  color: var(--moss-pale);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.project-features ul {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.project-features li {
+  position: relative;
+  padding-left: 14px;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 0.68rem;
+  line-height: 1.5;
+}
+
+.project-features li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--terracotta);
+  font-weight: 800;
+}
+
+@media (max-width: 760px) {
+  .project-features {
+    margin: 16px 0 18px;
+  }
+
+  .project-features h4 {
+    margin-bottom: 9px;
+    font-size: 0.62rem;
+  }
+
+  .project-features ul {
+    gap: 5px;
+  }
+
+  .project-features li {
+    padding-left: 13px;
+    font-size: 0.63rem;
+    line-height: 1.5;
+  }
+}

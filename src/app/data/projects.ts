@@ -4,6 +4,7 @@ export type Project = {
   type: string;
   description: string;
   technologies: string[];
+  features: string[];
   images?: string[];
   demo?: string;
 };
@@ -15,6 +16,7 @@ export const projects: Project[] = [
     type: "Current live development",
     description:
       "A full-stack CRM application for managing leads, companies, deals, and support tickets through a centralized admin platform.",
+
     technologies: [
       "Next.js",
       "React",
@@ -23,6 +25,15 @@ export const projects: Project[] = [
       "Django",
       "PostgreSQL",
     ],
+
+    features: [
+      "Leads, Companies, Deals, and Tickets modules",
+      "REST API integration",
+      "Authentication and protected functionality",
+      "CRUD operations",
+      "Global search",
+    ],
+
     images: [
       "/projects/crm/login.png",
       "/projects/crm/dashboard.png",
@@ -40,6 +51,7 @@ export const projects: Project[] = [
       "/projects/crm/newmail.png",
       "/projects/crm/importcsv.png",
     ],
+
     demo: "https://crm-live-project-frontend-5h5x.vercel.app",
   },
 
@@ -49,26 +61,34 @@ export const projects: Project[] = [
     type: "Full Stack E-Commerce Application",
     description:
       "A responsive e-commerce web application featuring product browsing, product details, shopping cart functionality, and dedicated information pages.",
+
     technologies: [
       "React",
       "Next.js",
       "TypeScript",
       "REST API",
     ],
-    
-       images: [
-       "/projects/shopco/home.png",
-       "/projects/shopco/login.png",
-       "/projects/shopco/register.png",
-       "/projects/shopco/product1.png",
-       "/projects/shopco/product2.png",
-       "/projects/shopco/product3.png",
-       "/projects/shopco/product-details.png",
-       "/projects/shopco/ordersummary.png",
-       "/projects/shopco/cart.png",
-       "/projects/shopco/footer.png",
-     ],
-   
+
+    features: [
+      "Responsive home page",
+      "Product listing",
+      "Product detail pages",
+      "Cart page",
+      "About Us page",
+    ],
+
+    images: [
+      "/projects/shopco/home.png",
+      "/projects/shopco/login.png",
+      "/projects/shopco/register.png",
+      "/projects/shopco/product1.png",
+      "/projects/shopco/product2.png",
+      "/projects/shopco/product3.png",
+      "/projects/shopco/product-details.png",
+      "/projects/shopco/ordersummary.png",
+      "/projects/shopco/cart.png",
+      "/projects/shopco/footer.png",
+    ],
   },
 
   {
@@ -77,6 +97,7 @@ export const projects: Project[] = [
     type: "Next.js Mini Project",
     description:
       "An e-commerce application developed as a Next.js assignment using both App Router and Pages Router approaches. The application includes product browsing, product details, cart functionality, and informational pages.",
+
     technologies: [
       "Next.js",
       "React",
@@ -85,6 +106,17 @@ export const projects: Project[] = [
       "Pages Router",
       "Bootstrap",
     ],
+
+    features: [
+      "Responsive home page",
+      "Product listing",
+      "Product detail pages",
+      "Cart page",
+      "About Us page",
+      "Contact page",
+      "Order summary",
+    ],
+
     images: [
       "/projects/shoppy/home.png",
       "/projects/shoppy/products.png",
@@ -96,8 +128,8 @@ export const projects: Project[] = [
       "/projects/shoppy/contact1.png",
       "/projects/shoppy/ordersummary.png",
       "/projects/shoppy/footer.png",
-      
     ],
+
     demo: "https://shoppy-ecommerce-flax.vercel.app/",
   },
 ];
